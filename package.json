@@ -1,0 +1,65 @@
+{
+  "name": "babelnode-ts",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "todo": {
+    "window users": "npm install -g win-node-env"
+  },
+  "scripts": {
+    "build": "rimraf dist && babel ./src --out-dir dist --copy-files --extensions .ts,.js",
+    "start": "NODE_ENV=production node dist/index.js",
+    "dev": "NODE_ENV=development nodemon src/index.ts --ext ts,js,graphql --exec babel-node --extensions .ts,.js",
+    "tsc": "tsc --isolatedModules false",
+    "lint": "tslint -c tslint.json --fix --format verbose  src/**/*.{ts,tsx}",
+    "codegen": "gql-gen --config codegen.yml",
+    "prisma:deploy#": "rimraf src/server/prisma/generated &&  cd prisma && prisma deploy",
+    "prisma:deploy": "yarn prisma:deploy#  -e ../config/development.env",
+    "prisma:deploy_prod": "yarn prisma:deploy#  -e ../config/production.env",
+    "prisma:deploy_test": "yarn prisma:deploy# -e ../config/test.env"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.2.5",
+    "@babel/runtime": "^7.3.1",
+    "apollo-errors": "^1.9.0",
+    "apollo-server-express": "^2.3.1",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "jsonwebtoken": "^8.4.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/node": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.3.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.3.1",
+    "@babel/plugin-transform-runtime": "^7.2.0",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-typescript": "^7.1.0",
+    "@types/bcryptjs": "^2.4.2",
+    "@types/graphql": "^14.0.5",
+    "@types/jsonwebtoken": "^8.3.0",
+    "@types/node": "^10.12.18",
+    "babel-core": "7.0.0-bridge.0",
+    "graphql": "^14.1.1",
+    "graphql-cli": "^3.0.6",
+    "graphql-code-generator": "^0.16.0",
+    "graphql-codegen-fragment-matcher": "^0.16.0",
+    "graphql-codegen-introspection": "^0.16.0",
+    "graphql-codegen-typescript-client": "^0.16.0",
+    "graphql-codegen-typescript-common": "^0.16.0",
+    "graphql-codegen-typescript-resolvers": "^0.16.0",
+    "graphql-codegen-typescript-server": "^0.16.0",
+    "nodemon": "^1.18.9",
+    "prisma": "^1.25.0",
+    "prisma-binding": "^2.2.14",
+    "rimraf": "^2.6.2",
+    "tslint": "^5.12.1",
+    "tslint-config-prettier": "^1.17.0",
+    "typescript": "^3.2.4"
+  },
+  "resolutions": {
+    "babel-core": "7.0.0-bridge.0"
+  }
+}

@@ -1,0 +1,19 @@
+overwrite: true
+schema: "src/server/schema.graphql"
+documents: null
+generates:
+  src/server/generated/types.ts:
+    config:
+      noNamespaces: true
+      mappers:
+        Board: ./../prisma#Board
+        Card: ./../prisma#Card
+        List: ./../prisma#List
+        User: ./../prisma#User
+    plugins:
+      - "typescript-common"
+      - "typescript-server"
+      - "typescript-resolvers"
+  src/server/generated/schema.json:
+    plugins:
+      - "introspection"
