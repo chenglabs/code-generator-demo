@@ -2430,24 +2430,24 @@ export interface DateTimeScalarConfig
   name: "DateTime";
 }
 
-export interface IResolvers {
-  Query?: QueryResolvers;
-  User?: UserResolvers;
-  Board?: BoardResolvers;
-  List?: ListResolvers;
-  Card?: CardResolvers;
-  Mutation?: MutationResolvers;
-  AuthPayload?: AuthPayloadResolvers;
-  Subscription?: SubscriptionResolvers;
-  BoardSubscriptionPayload?: BoardSubscriptionPayloadResolvers;
-  BoardPreviousValues?: BoardPreviousValuesResolvers;
-  ListSubscriptionPayload?: ListSubscriptionPayloadResolvers;
-  ListPreviousValues?: ListPreviousValuesResolvers;
-  CardSubscriptionPayload?: CardSubscriptionPayloadResolvers;
-  CardPreviousValues?: CardPreviousValuesResolvers;
-  UserSubscriptionPayload?: UserSubscriptionPayloadResolvers;
-  UserPreviousValues?: UserPreviousValuesResolvers;
-  Node?: NodeResolvers;
+export interface IResolvers<Context = {}> {
+  Query?: QueryResolvers<Context>;
+  User?: UserResolvers<Context>;
+  Board?: BoardResolvers<Context>;
+  List?: ListResolvers<Context>;
+  Card?: CardResolvers<Context>;
+  Mutation?: MutationResolvers<Context>;
+  AuthPayload?: AuthPayloadResolvers<Context>;
+  Subscription?: SubscriptionResolvers<Context>;
+  BoardSubscriptionPayload?: BoardSubscriptionPayloadResolvers<Context>;
+  BoardPreviousValues?: BoardPreviousValuesResolvers<Context>;
+  ListSubscriptionPayload?: ListSubscriptionPayloadResolvers<Context>;
+  ListPreviousValues?: ListPreviousValuesResolvers<Context>;
+  CardSubscriptionPayload?: CardSubscriptionPayloadResolvers<Context>;
+  CardPreviousValues?: CardPreviousValuesResolvers<Context>;
+  UserSubscriptionPayload?: UserSubscriptionPayloadResolvers<Context>;
+  UserPreviousValues?: UserPreviousValuesResolvers<Context>;
+  Node?: NodeResolvers<Context>;
   DateTime?: GraphQLScalarType;
 }
 
